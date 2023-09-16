@@ -1,0 +1,43 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as language_code %}
+
+<!DOCTYPE html>
+<html lang="{ language_code }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}{% endblock %} — ReRead 
+    </title>
+</head>
+<body>
+    <header>
+         <!-- Для казахского языка -->
+        <a href="{% url 'set_language' %}" class="header__lang {% if LANGUAGE_CODE == 'kk' %}active{% endif %}" onclick="event.preventDefault(); document.getElementById('language-form').language.value = 'kk'; document.getElementById('language-form').submit();">Қаз</a>
+
+        <!-- Для русского языка -->
+        <a href="{% url 'set_language' %}" class="header__lang {% if LANGUAGE_CODE == 'ru' %}active{% endif %}" onclick="event.preventDefault(); document.getElementById('language-form').language.value = 'ru'; document.getElementById('language-form').submit();">Рус</a>
+
+        <form id="language-form" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <select name="language" style="display: none;">
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                        {{ language.name_local }} ({{ language.code }})
+                    </option>
+                {% endfor %}
+            </select>
+        </form>
+        {% trans 'Привет мир' %}
+        <a href="{% url 'reSite:view_profile' %}">Профиль</a>
+        <a href="{% url 'reSite:create_listing' %}">Создать объявление</a>
+        <a href="{% url 'reSite:listings' %}">Список объявлений</a>
+         
+        </a>
+    </header>
+    {% block content %}{% endblock %}
+</body>
+</html>

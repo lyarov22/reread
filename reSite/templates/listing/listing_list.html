@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список объявлений о продаже книг</title>
+</head>
+<body>
+  <h2>Объявления о продаже книг</h2>
+  <ul>
+    {% for listing in listings %}
+      <li>
+        <h3><a href="{% url 'reSite:listing_detail' listing.slug %}">{{ listing.title }}</a></h3>
+        <p>{{ listing.description }}</p>
+        <p>Цена: ${{ listing.price }}</p>
+        <p>Продавец: {{ listing.seller }}</p>
+        <!-- Добавьте другие поля объявления, например, фотографии -->
+      </li>
+    {% empty %}
+      <p>Нет доступных объявлений.</p>
+    {% endfor %}
+  </ul>
+</body>
+</html>

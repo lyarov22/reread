@@ -1,0 +1,29 @@
+{% extends "reSite/header.html" %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as language_code %}
+
+<!DOCTYPE html>
+<html lang="{{ language_code }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}index{% endblock %}
+</head>
+<body>
+    <header>
+        {% include 'reSite/header.html' %} 
+    </header>
+    {% block content %}
+    <h1>{% trans 'Лес' %}</h1>
+    {% if user.is_authenticated %}
+        <!-- Контент для авторизованных пользователей -->
+        <p>Добро пожаловать, {{ user.username }}!</p>
+        <a href="{% url 'reSite:logout' %}">Выйти</a>
+    {% else %}
+        <!-- Контент для анонимных пользователей -->
+        <p>Пожалуйста, <a href="{% url 'reSite:login' %}">войдите</a> или <a href="{% url 'reSite:register' %}">зарегистрируйтесь</a>.</p>
+    {% endif %}
+        {% endblock %}
+</body>
+</html>
