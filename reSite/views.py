@@ -99,3 +99,4 @@ def book_listing_detail(request, slug):
     book = get_object_or_404(BookListing, slug=slug)
     default_avatar_url = settings.MEDIA_URL + 'listing_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
     return render(request, 'listing/book_listing_detail.html', {'book': book, 'default_avatar_url': default_avatar_url})
+
