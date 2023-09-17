@@ -1,0 +1,41 @@
+/* listing_list.css */
+
+/* Стилизация объявлений */
+.listing {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    width: 20%; /* Ширина блока с небольшим отступом, чтобы было 4 объявления в строке */
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Добавим тень для стиля */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.listing h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Установите максимальную ширину, чтобы избежать переноса текста */
+}
+
+.listing p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.listing img {
+    max-width: 100%; /* Сделаем изображение адаптивным к размерам контейнера */
+    height: auto;
+    display: block; /* Убираем лишние промежутки вокруг изображения */
+    margin: 0 auto; /* Центрируем изображение по горизонтали */
+}
+
+.listing a {
+    text-decoration: none;
+    color: #333;
+}

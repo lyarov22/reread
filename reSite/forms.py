@@ -23,4 +23,4 @@ class ProfileForm(forms.ModelForm):
 class BookListingForm(forms.ModelForm):
     class Meta:
         model = BookListing
-        fields = ['title', 'description', 'price', 'seller']
+        fields = ['title', 'description', 'price']

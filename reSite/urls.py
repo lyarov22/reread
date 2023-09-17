@@ -20,5 +20,8 @@ urlpatterns = [
 
     path('create_listing/', views.create_listing, name='create_listing'),
     path('listings/', views.listing_list, name='listings'),
+
     path('books/<slug:slug>/', views.book_listing_detail, name='book_listing_detail'),
+
+    
 ]

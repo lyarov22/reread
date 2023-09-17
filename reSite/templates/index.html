@@ -8,12 +8,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reSite/index.css' %}">
+    <link rel="stylesheet" href="{% static 'reSite/universal.css' %}">
     {% block title %}index{% endblock %}
 </head>
 <body>
-    <header>
-        {% include 'reSite/header.html' %} 
-    </header>
+    {% include 'reSite/header.html' %} 
     {% block content %}
     <h1>{% trans 'Лес' %}</h1>
     {% if user.is_authenticated %}

@@ -1,0 +1,49 @@
+.header {
+    background-color: #ffffff;
+    color: white;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav-left {
+    float: left;
+}
+
+.nav__logo {
+    height: 50px;
+}
+
+.nav-right {
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+.nav-langs {
+    display: flex;
+    align-items: center;
+}
+
+.nav__lang {
+    margin-right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav__lang.active {
+    color: #e92413;
+}
+
+.nav-icons a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+

@@ -52,7 +52,7 @@ def view_profile(request):
         # Если профиль не существует, создайте его здесь
         profile = Profile(user=request.user)
         profile.save()
-    default_avatar_url = settings.MEDIA_URL + 'avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
+    default_avatar_url = settings.MEDIA_URL + 'user_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
     return render(request, 'profile/view_profile.html', {'profile': profile, 'default_avatar_url': default_avatar_url})
 
 @login_required
@@ -91,9 +91,11 @@ def create_listing(request):
 
 def listing_list(request):
     listings = BookListing.objects.all()
-    return render(request, 'listing/listing_list.html', {'listings': listings})
+    default_avatar_url = settings.MEDIA_URL + 'listing_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
+    return render(request, 'listing/listing_list.html', {'listings': listings, 'default_avatar_url': default_avatar_url})
 
 
 def book_listing_detail(request, slug):
     book = get_object_or_404(BookListing, slug=slug)
-    return render(request, 'listing/book_listing_detail.html', {'book': book})
+    default_avatar_url = settings.MEDIA_URL + 'listing_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
+    return render(request, 'listing/book_listing_detail.html', {'book': book, 'default_avatar_url': default_avatar_url})

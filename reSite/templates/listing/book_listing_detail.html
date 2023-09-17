@@ -4,6 +4,11 @@
     <title>{{ book.title }}</title>
 </head>
 <body>
+    {% if profile.avatar %}
+        <img src="{{ listing.avatar.url }}" alt="Аватар пользователя">
+    {% else %}
+        <img src="{{ default_avatar_url }}" alt="Фотография по умолчанию">
+    {% endif %}
     <h1>{{ book.title }}</h1>
     <p>{{ book.description }}</p>
     <p>Цена: ${{ book.price }}</p>

@@ -1,24 +1,52 @@
+{% extends "reSite/header.html" %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as language_code %}
+
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ language_code }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список объявлений о продаже книг</title>
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'reSite/listing_list.css' %}">
+    {% endblock %}
+    {% block title %}listing_list{% endblock %}
 </head>
 <body>
-  <h2>Объявления о продаже книг</h2>
-  <ul>
-    {% for listing in listings %}
-      <li>
-        <h3><a href="{% url 'reSite:listing_detail' listing.slug %}">{{ listing.title }}</a></h3>
-        <p>{{ listing.description }}</p>
-        <p>Цена: ${{ listing.price }}</p>
-        <p>Продавец: {{ listing.seller }}</p>
-        <!-- Добавьте другие поля объявления, например, фотографии -->
-      </li>
-    {% empty %}
-      <p>Нет доступных объявлений.</p>
-    {% endfor %}
-  </ul>
+    <div class="main">
+        {% include 'reSite/header.html' %} 
+        <div class="container">
+            <div class="main-container">
+                {% block content %}
+                  <h2>Объявления о продаже книг</h2>
+                  <ul>
+                    {% for listing in listings %}
+                    
+                    <div class="listing">
+                      <a href="{% url 'reSite:book_listing_detail' listing.slug %}">
+                        {% if profile.avatar %}
+                          <img class="lising__avatar" src="{{ listing.avatar.url }}" alt="Аватар пользователя">
+                        {% else %}
+                            <img src="{{ default_avatar_url }}" alt="Фотография по умолчанию">
+                        {% endif %}
+                          <h3>{{ listing.title }}</h3>
+                          <p>{{ listing.description }}</p>
+                          <p>Цена: ${{ listing.price }}</p>
+                          <p>Продавец: {{ listing.seller }}</p>
+                          <!-- Добавьте другие поля объявления, например, фотографии -->
+                      </a>
+                      
+                    </div>
+                      
+                    {% empty %}
+                      <p>Нет доступных объявлений.</p>
+                    {% endfor %}
+                  </ul>
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

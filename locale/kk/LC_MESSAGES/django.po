@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-16 23:06+0600\n"
-"PO-Revision-Date: 2023-09-16 23:06+0600\n"
-"Last-Translator:   <123@123.123>\n"
+"POT-Creation-Date: 2023-09-17 13:04+0600\n"
+"PO-Revision-Date: 2023-09-17 13:07+0600\n"
+"Last-Translator:   <admin@admin.123>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +22,33 @@ msgstr ""
 msgid "Лес"
 msgstr "Орман"
 
-#: .\reSite\templates\reSite\header.html:34
-msgid "Привет мир"
-msgstr "Салем, алем"
+#: .\reSite\templates\reSite\header.html:29
+msgid "Список объявлений"
+msgstr ""
+
+#: .\reSite\templates\reSite\header.html:37
+msgid "Профиль"
+msgstr "Сіздің тіркелгіңіз"
+
+#: .\reSite\templates\reSite\header.html:42
+msgid "Создать объявление"
+msgstr "Хабарландыру беру"
+
+#: .\reSite\templates\registration\login.html:22
+msgid "Вход"
+msgstr "Кіру"
+
+#: .\reSite\templates\registration\login.html:26
+msgid "Войти"
+msgstr "Кіру"
+
+#: .\reSite\templates\registration\register.html:22
+msgid "Регистрация"
+msgstr "Тіркелу"
+
+#: .\reSite\templates\registration\register.html:26
+msgid "Зарегестрироваться"
+msgstr "Тіркелу"
+
+#~ msgid "Привет мир"
+#~ msgstr "Салем, алем"
