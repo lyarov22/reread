@@ -3,8 +3,10 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 from reread import settings
-from .models import Profile, BookListing
-from .forms import RegistrationForm, LoginForm, ProfileForm, BookListingForm
+from .models import Category, Product, Profile
+from .forms import RegistrationForm, LoginForm, ProfileForm, ProductForm
+
+default_avatar_url = settings.MEDIA_URL + 'listing_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
 
 def index(request):
    
@@ -78,25 +80,50 @@ def edit_profile(request):
 
 def create_listing(request):
     if request.method == 'POST':
-        form = BookListingForm(request.POST)
+        form = ProductForm(request.POST)
         if form.is_valid():
             listing = form.save(commit=False)
             listing.seller = request.user
             listing.save()
             return redirect('reSite:listings')  # Перенаправление на страницу со списком объявлений
     else:
-        form = BookListingForm()
+        form = ProductForm()
     
-    return render(request, 'listing/create_listing.html', {'form': form})
+    return render(request, 'books/create_listing.html', {'form': form})
 
-def listing_list(request):
-    listings = BookListing.objects.all()
-    default_avatar_url = settings.MEDIA_URL + 'listing_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
-    return render(request, 'listing/listing_list.html', {'listings': listings, 'default_avatar_url': default_avatar_url})
-
+def product_list(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request,
+                  'books/list.html',
+                  {'category': category,
+                   'categories': categories,
+                   'products': products,
+                    'default_avatar_url': default_avatar_url})
 
 def book_listing_detail(request, slug):
-    book = get_object_or_404(BookListing, slug=slug)
-    default_avatar_url = settings.MEDIA_URL + 'listing_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
-    return render(request, 'listing/book_listing_detail.html', {'book': book, 'default_avatar_url': default_avatar_url})
+    book = get_object_or_404(Product, slug=slug)
+    return render(request, 'books/detail.html', {'book': book, 'default_avatar_url': default_avatar_url})
 
+
+@login_required
+def edit_listing(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+
+    # Проверяем, что текущий пользователь является продавцом объявления
+    if product.seller != request.user:
+        return redirect('reSite:index')  # Если текущий пользователь не является продавцом, перенаправляем его
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('reSite:book_listing_detail', slug=slug)
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'books/edit.html', {'form': form, 'product': product})

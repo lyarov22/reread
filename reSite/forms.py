@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import CustomUser, Profile, BookListing
+from .models import CustomUser, Profile, Product
 
 # login system
 class RegistrationForm(UserCreationForm):
@@ -20,7 +20,8 @@ class ProfileForm(forms.ModelForm):
         fields = ['bio', 'avatar']        
 
 
-class BookListingForm(forms.ModelForm):
+class ProductForm(forms.ModelForm):
     class Meta:
-        model = BookListing
-        fields = ['title', 'description', 'price']
+        model = Product
+        fields = ['title', 'description', 'price', 'category']
+

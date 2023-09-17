@@ -1,7 +1,7 @@
 /* listing_list.css */
 
 /* Стилизация объявлений */
-.listing {
+.item {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     padding: 10px;
@@ -14,7 +14,7 @@
     text-align: center; /* Выравнивание текста по центру */
 }
 
-.listing h3 {
+.item h3 {
     font-size: 1.5rem;
     margin-bottom: 5px;
     white-space: nowrap;
@@ -23,19 +23,19 @@
     max-width: 100%; /* Установите максимальную ширину, чтобы избежать переноса текста */
 }
 
-.listing p {
+.item p {
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
 
-.listing img {
+.item img {
     max-width: 100%; /* Сделаем изображение адаптивным к размерам контейнера */
     height: auto;
     display: block; /* Убираем лишние промежутки вокруг изображения */
     margin: 0 auto; /* Центрируем изображение по горизонтали */
 }
 
-.listing a {
+.item a {
     text-decoration: none;
     color: #333;
 }

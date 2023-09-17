@@ -1,0 +1,46 @@
+{% extends "reSite/header.html" %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as language_code %}
+
+<!DOCTYPE html>
+<html lang="{{ language_code }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'reSite/register.css' %}">
+    {% endblock %}
+    {% block title %}book{% endblock %}
+</head>
+<body>
+    <div class="detail">
+        {% include 'reSite/header.html' %} 
+        <div class="container">
+            <div class="detail-container">
+                {% block content %}
+                    <div class="header2">
+                        <a href="{% url 'reSite:listings' %}">{% trans 'Список объявлений' %}</a> &LongRightArrow;
+                        <a href="{{ book.category.get_absolute_url }}">{{book.category}}</a> &LongRightArrow;
+                        <a href="{{ book.get_absolute_url }}">{{book.title}}</a>
+                    </div>
+                    {% if book.avatar %}
+                        <img src="{{ book.avatar.url }}" alt="Аватар пользователя">
+                    {% else %}
+                        <img src="{{ default_avatar_url }}" alt="Фотография по умолчанию">
+                    {% endif %}
+                    <h1>{{ book.title }}</h1>
+                    <p>{{ book.description }}</p>
+                    <p>Цена: ${{ book.price }}</p>
+                    <p>Продавец: {{ book.seller }}</p>
+                    <!-- Добавьте другие поля, например, фотографии книги -->
+                    {% if request.user == book.seller %}
+                    <a href="{% url 'reSite:edit_listing' book.slug %}">Редактировать объявление</a>
+                    {% endif %}
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

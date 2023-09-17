@@ -19,7 +19,12 @@ urlpatterns = [
 
 
     path('create_listing/', views.create_listing, name='create_listing'),
-    path('listings/', views.listing_list, name='listings'),
+
+    path('books', views.product_list, name='listings'),
+    path('<slug:category_slug>/', views.product_list, name='product_list_by_category'),
 
     path('books/<slug:slug>/', views.book_listing_detail, name='book_listing_detail'),
+
+    path('books/<slug:slug>/edit/', views.edit_listing, name='edit_listing'),
+    
 ]
