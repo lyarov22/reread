@@ -1,13 +1,15 @@
 from django.contrib import admin
-from .models import Product, Category
+from .models import Advertisement, Category, Book
 
-@admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ('title', 'seller')
+@admin.register(Advertisement)
+class AdvertisementAdmin(admin.ModelAdmin):
+    list_display = ('price', 'seller')
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', )
     prepopulated_fields = {'slug': ('name',)}
     
-
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    pass

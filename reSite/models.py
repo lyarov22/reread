@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.text import slugify
 from django.urls import reverse
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # login system
 class CustomUser(AbstractUser):
@@ -62,16 +63,29 @@ class Category(models.Model):
         return reverse('reSite:product_list_by_category',
                         args=[self.slug])
 
+class Book(models.Model):
+    avatar = models.ImageField(upload_to='book_avatars/', blank=True, null=True)
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    year = models.IntegerField(validators=[MinValueValidator(1000), MaxValueValidator(9999)])
 
-class Product(models.Model):
-    avatar = models.ImageField(upload_to='listing_avatars/', blank=True, null=True)
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200, db_index=True)
-    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.title
+
+class Advertisement(models.Model):
+    avatar = models.ImageField(upload_to='advertisement_avatars/', blank=True, null=True)
+    # title = models.CharField(max_length=200, db_index=True)
+    # description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    # stock = models.PositiveIntegerField()
     available = models.BooleanField(default=True)
-    created = models.DateTimeField(auto_now_add=True)
+    # created = models.DateTimeField(auto_now_add=True)
+
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    source = models.CharField(max_length=255)  # Олх, Флип КЗ, Меломан и т.д.
+    condition = models.CharField(max_length=255)  # Новая, б/у, электронная и т.д.
     
     seller = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, max_length=200, allow_unicode=True, null=True, blank=True)
@@ -82,22 +96,22 @@ class Product(models.Model):
         if not self.slug:
             # Генерируем случайное уникальное число
             self.unique_number = random.randint(1000000, 9999999)
-            self.slug = slugify(f"{self.title}-{self.unique_number}")
+            self.slug = slugify(f"{self.book}-{self.unique_number}")
         super().save(*args, **kwargs)
 
     class Meta:
-        ordering = ('title',)
+        ordering = ('price',)
         index_together = (('id', 'slug'),)
 
     def __str__(self):
-        return self.title
+        return self.price
     
     def get_absolute_url(self):
         return reverse('reSite:book_listing_detail', args=[str(self.slug)])
     
-class ProductImage(models.Model):
-    post = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='Product/%Y/%m/%d/', verbose_name='Дополнительное фото / Қосымша фотосурет')
+class AdvertisementImage(models.Model):
+    post = models.ForeignKey(Advertisement, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='Advertisement/%Y/%m/%d/', verbose_name='Дополнительное фото / Қосымша фотосурет')
 
     def __str__(self):
         return f"{self.post.title} Image"

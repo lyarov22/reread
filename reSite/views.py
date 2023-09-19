@@ -3,8 +3,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 from reread import settings
-from .models import Category, Product, Profile
-from .forms import RegistrationForm, LoginForm, ProfileForm, ProductForm
+from .models import Category, Advertisement, Profile
+from .forms import RegistrationForm, LoginForm, ProfileForm, AdvertisementForm
 
 default_avatar_url = settings.MEDIA_URL + 'listing_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
 
@@ -80,21 +80,21 @@ def edit_profile(request):
 @login_required
 def create_listing(request):
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = AdvertisementForm(request.POST)
         if form.is_valid():
             listing = form.save(commit=False)
             listing.seller = request.user
             listing.save()
             return redirect('reSite:listings')  # Перенаправление на страницу со списком объявлений
     else:
-        form = ProductForm()
+        form = AdvertisementForm()
     
     return render(request, 'books/create_listing.html', {'form': form})
 
 def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
-    products = Product.objects.filter(available=True)
+    products = Advertisement.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
@@ -106,24 +106,38 @@ def product_list(request, category_slug=None):
                     'default_avatar_url': default_avatar_url})
 
 def book_listing_detail(request, slug):
-    book = get_object_or_404(Product, slug=slug)
+    book = get_object_or_404(Advertisement, slug=slug)
     return render(request, 'books/detail.html', {'book': book, 'default_avatar_url': default_avatar_url})
 
 
 @login_required
 def edit_listing(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+    product = get_object_or_404(Advertisement, slug=slug)
 
     # Проверяем, что текущий пользователь является продавцом объявления
-    if product.seller != request.user:
+    if Advertisement.seller != request.user:
         return redirect('reSite:index')  # Если текущий пользователь не является продавцом, перенаправляем его
 
     if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES, instance=product)
+        form = AdvertisementForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             return redirect('reSite:book_listing_detail', slug=slug)
     else:
-        form = ProductForm(instance=product)
+        form = AdvertisementForm(instance=product)
 
     return render(request, 'books/edit.html', {'form': form, 'product': product})
+
+@login_required
+def user_books(request):
+    # Получите текущего пользователя
+    user = request.user
+
+    # Извлеките все объявления, созданные текущим пользователем
+    user_products = Advertisement.objects.filter(seller=user)
+
+    context = {
+        'user_products': user_products
+    }
+
+    return render(request, 'profile/user_books.html', context)
