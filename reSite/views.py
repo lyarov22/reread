@@ -119,7 +119,7 @@ def edit_listing(request, slug):
         return redirect('reSite:index')  # Если текущий пользователь не является продавцом, перенаправляем его
 
     if request.method == 'POST':
-        form = ProductForm(request.POST, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             return redirect('reSite:book_listing_detail', slug=slug)

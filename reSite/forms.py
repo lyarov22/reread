@@ -23,5 +23,5 @@ class ProfileForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['title', 'description', 'price', 'category']
+        fields = ['avatar', 'title', 'description', 'price', 'category']
 
