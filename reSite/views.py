@@ -77,7 +77,7 @@ def edit_profile(request):
 
     return render(request, 'profile/edit_profile.html', {'form': form})
 
-
+@login_required
 def create_listing(request):
     if request.method == 'POST':
         form = ProductForm(request.POST)
