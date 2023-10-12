@@ -17,27 +17,33 @@
     - ReRead — secondhand book marketplace
 3. Создание проекта:
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e86c21ff-9271-4df2-a04d-ae835a6acab5/4ac045b0-f39b-416c-a5a0-30ee528a7d6f/Untitled.png)
+![image](https://github.com/lyarov22/reread/assets/96327924/85302bb2-6b85-4d6f-9e13-81d3a73406d9)
+
 
 Добавление всех членов команды, которые будут работать над проектом. Выбор лидера проекта, который будет отвечать за управление проектом:
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e86c21ff-9271-4df2-a04d-ae835a6acab5/0315f44a-8d55-4db6-81c1-208a005e4050/Untitled.png)
+![image](https://github.com/lyarov22/reread/assets/96327924/c8b97040-f138-4ab0-8d82-0dd546819800)
+
 
 Настроить канбан-доску
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e86c21ff-9271-4df2-a04d-ae835a6acab5/ce34131d-26f8-4a03-ac40-553d38d17ace/Untitled.png)
+![image](https://github.com/lyarov22/reread/assets/96327924/829525cd-0c89-448e-853a-f8295caf31ee)
+
 
 Создание эпиков “Интернационализация” и “Лабораторки”:
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e86c21ff-9271-4df2-a04d-ae835a6acab5/96302dbc-1e4c-44af-bafd-773e232e991a/Untitled.png)
+![image](https://github.com/lyarov22/reread/assets/96327924/6e6855a7-90ea-4ac3-9109-175333e5767e)
+
 
 Изменение вида доски задач
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e86c21ff-9271-4df2-a04d-ae835a6acab5/fc703b6c-4cd1-4f87-8d59-3f62b8beafdd/Untitled.png)
+![image](https://github.com/lyarov22/reread/assets/96327924/31cf97a6-d809-48fb-bc48-d02b629c636a)
+
 
 Хронология проекта и отображение правок
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/e86c21ff-9271-4df2-a04d-ae835a6acab5/c8397780-bfae-418e-8f21-aa8ff22531c3/Untitled.png)
+![image](https://github.com/lyarov22/reread/assets/96327924/f6f72f97-5dae-425c-b43c-831b5f1a616a)
+
 
 1. При необходимости добавлять комментарии к задачам, прикреплять вложения, отправлять уведомления
     - При действиях где затрагивается конкретный пользователь, например, присвоение задачи сотруднику, то ему на почту приходит уведомление о том, что ему была присвоена задача.
