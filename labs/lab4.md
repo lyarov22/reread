@@ -33,3 +33,12 @@
 [listing_list — ReRead](https://reread.lyarov22.repl.co/listings/)
 
 ![Untitled](%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%204%20ebb8c68d548746e0918ac03163c8f2ae/Untitled%205.png)
+P.S. Мы делаем все лабораторные на нашем реальном проекте, т.к так удобнее и практичнее
+
+Работу выполнили
+
+Федоров Илья
+
+Жардем Алтынай
+
+П3А
