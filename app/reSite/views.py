@@ -3,10 +3,11 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 from reread import settings
-from .models import Category, Advertisement, Profile
+from .models import Category, Advertisement, Profile, Book
 from .forms import RegistrationForm, LoginForm, ProfileForm, AdvertisementForm
 
-default_avatar_url = settings.MEDIA_URL + 'listing_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
+default_advertisement_avatar_url = settings.MEDIA_URL + 'book_avatars/default_avatar.png'  # Путь к фотографии по умолчанию
+default_user_avatar_url = settings.MEDIA_URL + 'user_avatars/default_avatar.png'  # Путь к фотографии по умолчанию
 
 def index(request):
    
@@ -54,8 +55,8 @@ def view_profile(request):
         # Если профиль не существует, создайте его здесь
         profile = Profile(user=request.user)
         profile.save()
-    default_avatar_url = settings.MEDIA_URL + 'user_avatars/default_avatar.jpg'  # Путь к фотографии по умолчанию
-    return render(request, 'profile/view_profile.html', {'profile': profile, 'default_avatar_url': default_avatar_url})
+    
+    return render(request, 'profile/view_profile.html', {'profile': profile, 'default_avatar_url': default_user_avatar_url})
 
 @login_required
 def edit_profile(request):
@@ -75,7 +76,7 @@ def edit_profile(request):
     else:
         form = ProfileForm(instance=profile)
 
-    return render(request, 'profile/edit_profile.html', {'form': form})
+    return render(request, 'profile/edit_profile.html', {'form': form, 'profile': profile, 'default_avatar_url': default_user_avatar_url})
 
 @login_required
 def create_listing(request):
@@ -97,26 +98,36 @@ def product_list(request, category_slug=None):
     products = Advertisement.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
-        products = products.filter(category=category)
+        # products = products.filter(category=category)
+        products = Advertisement.objects.filter(book__category=category)
+        
     return render(request,
                   'books/list.html',
                   {'category': category,
                    'categories': categories,
                    'products': products,
-                    'default_avatar_url': default_avatar_url})
+                    'default_avatar_url': default_advertisement_avatar_url,
+                    })
+
 
 def book_listing_detail(request, slug):
-    book = get_object_or_404(Advertisement, slug=slug)
-    return render(request, 'books/detail.html', {'book': book, 'default_avatar_url': default_avatar_url})
+    advertisement = get_object_or_404(Advertisement, slug=slug)
+    book = get_object_or_404(Book, advertisement = advertisement)
+
+    return render(request, 'books/detail.html', 
+                  {'advertisement': advertisement, 
+                   'default_avatar_url': default_advertisement_avatar_url,
+                   'book': book})
 
 
 @login_required
 def edit_listing(request, slug):
     product = get_object_or_404(Advertisement, slug=slug)
-
-    # Проверяем, что текущий пользователь является продавцом объявления
-    if Advertisement.seller != request.user:
-        return redirect('reSite:index')  # Если текущий пользователь не является продавцом, перенаправляем его
+    
+    # ЧЕТО СЛОМАЛОСЬ
+    # # Проверяем, что текущий пользователь является продавцом объявления
+    # if Advertisement.seller != request.user:
+    #     return redirect('reSite:index')  # Если текущий пользователь не является продавцом, перенаправляем его
 
     if request.method == 'POST':
         form = AdvertisementForm(request.POST, request.FILES, instance=product)

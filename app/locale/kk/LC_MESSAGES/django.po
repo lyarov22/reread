@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-02 11:23+0600\n"
+"PO-Revision-Date: 2023-11-02 12:13+0600\n"
+"Last-Translator:   <admin@admin.123>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
+
+#: .\reSite\templates\books\detail.html:23
+#: .\reSite\templates\reSite\header.html:29
+msgid "Список объявлений"
+msgstr "Жарнамалар тізімі"
+
+#: .\reSite\templates\index.html:13
+msgid "Главная"
+msgstr ""
+
+#: .\reSite\templates\index.html:18
+msgid "ReRead - маркетплейс книг"
+msgstr "ReRead - кітаптар нарығы"
+
+#: .\reSite\templates\index.html:21
+msgid "Добро пожаловать,"
+msgstr "Қош келдіңіз,"
+
+#: .\reSite\templates\index.html:22
+msgid "Выйти"
+msgstr "Шығу"
+
+#: .\reSite\templates\index.html:25
+msgid "Пожалуйста"
+msgstr "Өтінемін"
+
+#: .\reSite\templates\index.html:25
+msgid "войдите"
+msgstr "кіру"
+
+#: .\reSite\templates\index.html:25
+msgid "или"
+msgstr "немесе"
+
+#: .\reSite\templates\reSite\header.html:37
+msgid "Профиль"
+msgstr ""
+
+#: .\reSite\templates\reSite\header.html:42
+msgid "Создать объявление"
+msgstr "Жарнама жасау"
+
+#: .\reSite\templates\registration\login.html:22
+msgid "Вход"
+msgstr "Кіру"
+
+#: .\reSite\templates\registration\login.html:26
+msgid "Войти"
+msgstr "Кіру"
+
+#: .\reSite\templates\registration\register.html:22
+msgid "Регистрация"
+msgstr "Тіркеу"
+
+#: .\reSite\templates\registration\register.html:26
+msgid "Зарегестрироваться"
+msgstr "Тіркелу"
+
+#~ msgid "Лес"
+#~ msgstr "Орман"

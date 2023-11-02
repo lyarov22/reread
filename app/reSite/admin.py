@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Advertisement, Category, Book
+from .models import Advertisement, Category, Book, Profile
 
 @admin.register(Advertisement)
 class AdvertisementAdmin(admin.ModelAdmin):
@@ -12,4 +12,7 @@ class CategoryAdmin(admin.ModelAdmin):
     
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
+    pass
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
     pass

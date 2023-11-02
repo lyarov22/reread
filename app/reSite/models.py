@@ -78,10 +78,9 @@ class Advertisement(models.Model):
     avatar = models.ImageField(upload_to='advertisement_avatars/', blank=True, null=True)
     # title = models.CharField(max_length=200, db_index=True)
     # description = models.TextField(blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=0)
     available = models.BooleanField(default=True)
     # created = models.DateTimeField(auto_now_add=True)
-
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     source = models.CharField(max_length=255)  # Олх, Флип КЗ, Меломан и т.д.
@@ -104,7 +103,8 @@ class Advertisement(models.Model):
         index_together = (('id', 'slug'),)
 
     def __str__(self):
-        return self.price
+        return f"Advertisement: {self.book.title} - {self.price} KZT"
+
     
     def get_absolute_url(self):
         return reverse('reSite:book_listing_detail', args=[str(self.slug)])

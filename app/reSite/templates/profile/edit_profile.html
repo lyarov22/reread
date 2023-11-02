@@ -20,16 +20,24 @@
             <div class="profile-container">
                 {% block content %}
                     <h1>Редактирование профиля</h1>
+                    <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
+
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <label for="id_bio">Биография:</label>
                         <textarea id="id_bio" name="bio">{{ profile.bio }}</textarea>
                         <br>
                         <label for="id_avatar">Аватар:</label>
+                        {% if profile.avatar %}
+                        <img src="{{ profile.avatar.url }}" alt="Аватар пользователя">
+                        {% else %}
+                            <img src="{{ default_avatar_url }}" alt="Фотография по умолчанию">
+                        {% endif %}
                         <input type="file" id="id_avatar" name="avatar">
                         <br>
                         <input type="submit" value="Сохранить">
                     </form>
+
                     <a href="{% url 'reSite:view_profile' %}">Вернуться</a>
                 {% endblock %}
             </div>

@@ -45,8 +45,9 @@
                                 <img src="{{ default_avatar_url }}" alt="Фотография по умолчанию">
                             {% endif %}
                             
-                            {{ product.title }}
-                            ${{ product.price }}
+                            {{ product.book.title }} <br>
+                            {{ product.condition }} <br>
+                            {{ product.price }} ₸ <br>
                           </a>
 
                       </div>
