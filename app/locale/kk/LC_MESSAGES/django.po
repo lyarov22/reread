@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-02 11:23+0600\n"
-"PO-Revision-Date: 2023-11-02 12:13+0600\n"
+"POT-Creation-Date: 2023-11-21 09:42+0600\n"
+"PO-Revision-Date: 2023-11-21 10:36+0600\n"
 "Last-Translator:   <admin@admin.123>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -26,7 +26,7 @@ msgstr "Жарнамалар тізімі"
 
 #: .\reSite\templates\index.html:13
 msgid "Главная"
-msgstr ""
+msgstr "Басты бет"
 
 #: .\reSite\templates\index.html:18
 msgid "ReRead - маркетплейс книг"
@@ -46,15 +46,20 @@ msgstr "Өтінемін"
 
 #: .\reSite\templates\index.html:25
 msgid "войдите"
-msgstr "кіру"
+msgstr "кіріңіз"
 
 #: .\reSite\templates\index.html:25
 msgid "или"
 msgstr "немесе"
 
+#: .\reSite\templates\index.html:25
+#| msgid "Зарегестрироваться"
+msgid "зарегистрируйтесь"
+msgstr "тіркеліңіз"
+
 #: .\reSite\templates\reSite\header.html:37
 msgid "Профиль"
-msgstr ""
+msgstr "Жеке парақша"
 
 #: .\reSite\templates\reSite\header.html:42
 msgid "Создать объявление"

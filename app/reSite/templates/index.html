@@ -22,7 +22,7 @@
         <a href="{% url 'reSite:logout' %}">{% trans 'Выйти' %}</a>
     {% else %}
         <!-- Контент для анонимных пользователей -->
-        <p>{% trans 'Пожалуйста' %}, <a href="{% url 'reSite:login' %}">{% trans 'войдите' %}</a> {% trans 'или' %} <a href="{% url 'reSite:register' %}">{% trans 'зарегистрируйтесь'}</a>.</p>
+        <p>{% trans 'Пожалуйста' %}, <a class="link" href="{% url 'reSite:login' %}">{% trans 'войдите' %}</a> {% trans 'или' %} <a class="link" href="{% url 'reSite:register' %}">{% trans 'зарегистрируйтесь' %}</a>.</p>
     {% endif %}
         {% endblock %}
 </body>

@@ -17,6 +17,7 @@ body {
 
 a {
   text-decoration: none;
+  
 }
 
 .container {
@@ -29,4 +30,9 @@ a {
 
 .main {
     padding-top: 40px;
+}
+
+.link {
+  color: #e92413;
+  text-decoration: underline;
 }

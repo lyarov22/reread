@@ -19,42 +19,45 @@
         <div class="container">
             <div class="main-container">
                 {% block content %}
-                  <h2>Объявления о продаже книг</h2>
-                  <div id="sidebar">
-                    <h3>Categories</h3>
-                    <ul>
-                        <li {% if not category %}class="selected"{% endif %}>
-                            <a href="{% url "reSite:listings" %}">All</a>
-                        </li>
-                        {% for c in categories %}
-                            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
-                                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                  <h2>{% trans 'Объявления о продаже книг' %}</h2>
+                  <div class="catss">
+                    <div id="sidebar">
+                        <h3>{% trans 'Категории' %}</h3>
+                        <ul>
+                            <li class="cats" {% if not category %}class="selected"{% endif %}>
+                                <a href="{% url "reSite:listings" %}">All</a>
                             </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                
-                  <ul>
-                    {% for product in products %}
-                      <div class="item">
-                        
-                          <a href="{{ product.get_absolute_url }}">
-                            {% if product.avatar %}
-                                <img src="{{ product.avatar.url }}" alt="Аватар пользователя">
-                            {% else %}
-                                <img src="{{ default_avatar_url }}" alt="Фотография по умолчанию">
-                            {% endif %}
+                            {% for c in categories %}
+                                <li class="cats" {% if category.slug == c.slug %}class="selected"{% endif %}>
+                                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                      <ul class="ul-list">
+                        {% for product in products %}
+                          <div class="item">
                             
-                            {{ product.book.title }} <br>
-                            {{ product.condition }} <br>
-                            {{ product.price }} ₸ <br>
-                          </a>
-
-                      </div>
-                    {% empty %}
-                      <p>Нет доступных объявлений.</p>
-                    {% endfor %}
-                  </ul>
+                              <a href="{{ product.get_absolute_url }}">
+                                {% if product.avatar %}
+                                    <img src="{{ product.avatar.url }}" alt="Аватар пользователя">
+                                {% else %}
+                                    <img src="{{ default_avatar_url }}" alt="Фотография по умолчанию">
+                                {% endif %}
+                                
+                                {{ product.book.title }} <br>
+                                {{ product.condition }} <br>
+                                {{ product.price }} ₸ <br>
+                              </a>
+    
+                          </div>
+                        {% empty %}
+                          <p>Нет доступных объявлений.</p>
+                        {% endfor %}
+                      </ul>
+                  </div>
+                  
                 {% endblock %}
             </div>
 

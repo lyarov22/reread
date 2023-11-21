@@ -7,11 +7,16 @@
     padding: 10px;
     margin: 10px;
     box-sizing: border-box;
-    width: 20%; /* Ширина блока с небольшим отступом, чтобы было 4 объявления в строке */
+    width: 30%; /* Ширина блока с небольшим отступом, чтобы было 4 объявления в строке */
     display: inline-block;
     vertical-align: top;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Добавим тень для стиля */
     text-align: center; /* Выравнивание текста по центру */
+
+    min-height: 300px;
+
+    
+
 }
 
 .item h3 {
@@ -38,4 +43,39 @@
 .item a {
     text-decoration: none;
     color: #333;
+}
+
+
+
+.cats {
+    border: 1px solid gray;
+    width: 300px;
+
+    height: 30px;
+    
+    margin-top: 8px;
+
+    padding: 5px 0;
+
+    list-style: none;
+
+    text-align: center;
+
+}
+
+#sidebar {
+    width: 600px;
+}
+
+.catss {
+    display: flex;
+    flex-direction: row;
+}
+
+.ul-list {
+    margin-top: 60px;
+}
+
+.cats:hover{
+    background-color: rgb(207, 198, 198);
 }
