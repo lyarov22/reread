@@ -1,7 +1,12 @@
 {% extends 'core/base.html' %}
 
-{% block title %}Contact{% endblock %}
+{% load static i18n %}
+{% get_current_language as language_code %}
+
+{% block title %}
+    {% trans 'Contact' %}
+{% endblock %}
 
 {% block content %}
-    <h1>The contact page</h1>
+    <h1>{% trans 'The contact page' %}</h1>
 {% endblock %}
