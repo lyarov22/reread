@@ -3,10 +3,12 @@
 {% load static i18n %}
 {% get_current_language as language_code %}
 
-{% block title %}Inbox{% endblock %}
+{% block title %}
+    {% trans 'Inbox' %}
+{% endblock %}
 
 {% block content %}
-<h1 class="mb-6 text-3xl">Inbox</h1>
+<h1 class="mb-6 text-3xl">{% trans 'Inbox' %}</h1>
 
 <div class="space-y-6">
     {% for conversation in conversations %}

@@ -3,10 +3,12 @@
 {% load static i18n %}
 {% get_current_language as language_code %}
 
-{% block title %}Conversation{% endblock %}
+{% block title %}
+    {% trans 'Conversation' %}
+{% endblock %}
 
 {% block content %}
-<h1 class="mb-6 text-3xl">Conversation</h1>
+<h1 class="mb-6 text-3xl">{% trans 'Conversation' %}</h1>
 
 <div class="space-y-6">
     {% for message in conversation.messages.all %}

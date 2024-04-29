@@ -3,7 +3,9 @@
 {% load static i18n %}
 {% get_current_language as language_code %}
 
-{% block title %}Items{% endblock %}
+{% block title %}
+    {% trans 'Items' %}
+{% endblock %}
 
 {% block content %}
     <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
@@ -20,9 +22,17 @@
 
             <ul>
                 {% for category in categories %}
-                    <li class="py-2 px-2 rounded-xl{% if category.id == category_id %} bg-gray-200{% endif %}">
-                        <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
-                    </li>
+                <li class="py-2 px-2 rounded-xl{% if category.id == category_id %} bg-gray-200{% endif %}">
+                    <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.id }}">
+                        {% for lang_code, translation in category.name_translations.items %}
+                            {% if lang_code == LANGUAGE_CODE %}
+                                {{ translation }}
+                            {% endif %}
+                        {% empty %}
+                            {{ category.name_translations.en }}
+                        {% endfor %}
+                    </a>
+                </li>
                 {% endfor %}
             </ul>
 

@@ -3,10 +3,12 @@
 {% load static i18n %}
 {% get_current_language as language_code %}
 
-{% block title %}New conversation{% endblock %}
+{% block title %}
+    {% trans 'New conversation' %}
+{% endblock %}
 
 {% block content %}
-<h1 class="mb-6 text-3xl">New conversation</h1>
+<h1 class="mb-6 text-3xl">{% trans 'New conversation' %}</h1>
 
 <form method="post" action=".">
     {% csrf_token %}
