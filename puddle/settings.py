@@ -36,6 +36,8 @@ LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -138,6 +140,9 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+MODELTRANSLATION_TRANSLATION_REGISTRY = 'PUDDLE.translation'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

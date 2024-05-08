@@ -24,13 +24,7 @@
                 {% for category in categories %}
                 <li class="py-2 px-2 rounded-xl{% if category.id == category_id %} bg-gray-200{% endif %}">
                     <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.id }}">
-                        {% for lang_code, translation in category.name_translations.items %}
-                            {% if lang_code == LANGUAGE_CODE %}
-                                {{ translation }}
-                            {% endif %}
-                        {% empty %}
-                            {{ category.name }}
-                        {% endfor %}
+                        {{ category.name }}
                     </a>
                 </li>
                 {% endfor %}
