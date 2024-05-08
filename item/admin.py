@@ -43,8 +43,13 @@ class CategoryAdminForm(forms.ModelForm):
 
 class CategoryAdmin(admin.ModelAdmin):
     form = CategoryAdminForm
-    list_display = ['name']
+
+    list_display = ['name', 'display_image']
     search_fields = ['name']
+    fields = ['name', 'image', 'en_name', 'kk_name', 'ru_name', 'json_data']
+    def display_image(self, obj):
+        return obj.image.url if obj.image else None
+    display_image.short_description = 'Image'
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Item)

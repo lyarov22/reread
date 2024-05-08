@@ -1,5 +1,7 @@
-{% load static i18n %}
+{% load static i18n tailwind_tags %}
 {% get_current_language as language_code %}
+
+{% load livereload_tags %}
 
 <!doctype html>
 
@@ -7,10 +9,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <script src="https://cdn.tailwindcss.com"></script>
-
+        
         <title>{% block title %}{% endblock %} — ReRead - {% trans 'secondhand book marketplace' %}</title>
+        {% tailwind_css %}
+        {% livereload_script %}
     </head>
 
     <body>

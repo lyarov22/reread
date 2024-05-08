@@ -4,8 +4,8 @@ from django.db.models import JSONField
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    
-    name_translations = JSONField(verbose_name='Translated Names')
+    image = models.ImageField(upload_to='category_images', blank=True, null=True, default='default.jpg')
+    name_translations = JSONField(verbose_name='Translated Names', blank=True, null=True, default="")
 
     class Meta:
         ordering = ('name',)
@@ -15,11 +15,13 @@ class Category(models.Model):
         return self.get_name()
 
     def get_name(self, language_code=None):
-        if language_code and language_code in self.name_translations:
-            return self.name_translations[language_code]
+        if self.name_translations:
+            if language_code and language_code in self.name_translations:
+                return self.name_translations[language_code]
+            else:
+                return self.name_translations.get('en', 'No translation available')
         else:
-            return self.name_translations.get('en', 'No translation available')
-    
+            return self.name
     
 
 class Item(models.Model):
