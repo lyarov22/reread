@@ -8,33 +8,73 @@
 {% endblock %}
 
 {% block content %}
-    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
-        <h2 class="mb-12 text-2xl text-center">{% trans 'News' %}</h2>
-
-        <div class="grid grid-cols-3 gap-3">
-            
+    <div class="flex justify-center flex-row mx-3 px-4 py-6 rounded-xl items-center">
+        <div class="text-left w-2/4">
+            <h1 class="text-xl"><b>ReRead</b> - {% trans 'это ваш персональный маркетплейс книг, предназначенный для любителей чтения и коллекционеров книг. Наша платформа предлагает широкий выбор книг различных жанров, авторов и изданий по доступным ценам.' %} </h1>
+            <br>
+            <h2 class="text-base">{% trans 'На "Reread" вы можете как продавать свои книги, так и приобретать новые для своей коллекции. Мы стремимся создать удобное и безопасное онлайн-пространство для обмена литературой, где каждый пользователь может найти то, что ищет.' %}</h2>
         </div>
+        <img class="object-center h-64 ml-4" src="{% static 'img/reread-poster.jpg' %}" alt="ReRead Poster">
     </div>
-
-    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    
+    <div class="mt-6 px-4 py-12 bg-gray-100 rounded-xl">
         <h2 class="mb-12 text-2xl text-center">{% trans 'Newest items' %}</h2>
 
         <div class="grid xl:md:lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3">
             {% for item in items %}
-                <div class="">
-                    <a href="{% url 'item:detail' item.id %}">
-                        <div>
-                            <img src="{{ item.image.url }}" class="rounded-t-xl w-screen max-w-40">
-                        </div>
+            <div class="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+                <a class="relative mx-3 mt-3 flex h-60 rounded-xl" href="{% url 'item:detail' item.id %}">
+                  <img class="object-contain" src="{{ item.image.url }}" alt="product image" />
+                  <span 
+                  class="absolute top-0 left-0 m-2 rounded-full px-3 py-1 text-center text-sm font-medium text-white
+                {% if item.is_swap %}
+                    bg-orange-600
+                {% endif %}
+                  ">
+                {% if item.is_swap %}
+                    {% trans 'Обмен' %}
+                {% endif %}
+                  </span>
+                  <span 
+                  class="absolute top-0 {% if item.is_swap %} left-20 {% endif %} m-2 rounded-full px-3 py-1 text-center text-sm font-medium text-white
+                    {% if item.price == 0 %}
+                        bg-green-600
+                    {% else %}
+                        {% if item.price == None %}
+                            bg-green-600
+                        {% endif %}
+                    {% endif %}
+                  ">
+                    {% if item.price == 0 %}
+                        {% trans 'Даром' %}
+                    {% else %}
+                        {% if item.price == None %}
+                            {% trans 'Даром' %}
+                        {% endif %}
+                    {% endif %}
+                  </span>
+                </a>
+                <div class="mt-4 px-5 pb-5">
+                    <h5 class="text-xl tracking-tight text-slate-900">
+                        {% if item.name|length > 50 %}
+                            {{ item.name|slice:":50" }}...
+                        {% else %}
+                            {{ item.name }}
+                        {% endif %}
 
-                        <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-xl">&#171;{{ item.name }}&#187;, {{ item.author }}</h2>
-                            <br>
-                            <p class="text-gray-500 font-medium">
+                        {% if item.author|length > 50 %}
+                            , {{ item.author|slice:":50" }}...
+                        {% else %}
+                        , {{ item.author }}
+                        {% endif %}
+                    </h5>
+                  <div class="mt-2 mb-5 flex items-center justify-between">
+                    <p>
+                        <span class="text-3xl font-bold text-slate-900">
                                 {% if item.price %}
                                     {% if item.is_swap %}
                                         {% if item.price %}
-                                            {{ item.price }} ₸, {% trans 'Обмен' %}
+                                            {{ item.price }} ₸
                                         {% else %}
                                             {% trans 'Обмен' %}
                                         {% endif %}
@@ -43,14 +83,23 @@
                                     {% endif %}
                                 {% else %}
                                     {% if item.price == 0 %}
-                                        {{ item.price }} ₸,
+                                        {% trans 'Даром' %}
+                                    {% else %}
+                                        {% trans 'Даром' %}
                                     {% endif %}
-                                    {% trans 'Бесплатно' %}
                                 {% endif %}
-                            </p>
-                        </div>
-                    </a>
+                        </span>
+                    </p>
+
+                    <span class="mr-2 ml-3 rounded bg-blue-200 px-2.5 py-0.5 text-xs font-semibold">{{ item.get_language_display }}</span>
+                      <span class="mr-2 ml-3 rounded bg-purple-200 px-2.5 py-0.5 text-xs font-semibold">{{ item.publisher }}</span>
+
+                  </div>
+                  <span class="mr-2 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">{{ item.get_cover_type_display }}</span>
+                  <span class="mr-2 rounded bg-green-200 px-2.5 py-0.5 text-xs font-semibold">{{ item.get_condition_display }}</span>
                 </div>
+              </div>
+              
             {% endfor %}
         </div>
     </div>

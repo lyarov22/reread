@@ -9,87 +9,86 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-14 17:39+0500\n"
-"PO-Revision-Date: 2024-05-14 17:42+0000\n"
+"PO-Revision-Date: 2024-05-14 17:41+0000\n"
 "Last-Translator: Ilya Fedorov <123@123.123>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: .\conversation\templates\conversation\detail.html:7
 #: .\conversation\templates\conversation\detail.html:11
 msgid "Conversation"
-msgstr "Чат"
+msgstr ""
 
 #: .\conversation\templates\conversation\inbox.html:7
 #: .\conversation\templates\conversation\inbox.html:11
 #: .\core\templates\core\base.html:43
 msgid "Inbox"
-msgstr "Сообщения"
+msgstr ""
 
 #: .\conversation\templates\conversation\new.html:7
 #: .\conversation\templates\conversation\new.html:11
 msgid "New conversation"
-msgstr "Новый чат"
+msgstr ""
 
 #: .\core\templates\core\base.html:13
 msgid "secondhand book marketplace"
-msgstr "маркетплейс поддержанных книг"
+msgstr ""
 
 #: .\core\templates\core\base.html:25
 msgid "New item"
-msgstr "Создать объявление"
+msgstr ""
 
 #: .\core\templates\core\base.html:26
 msgid "Browse"
-msgstr "Каталог"
+msgstr ""
 
 #: .\core\templates\core\base.html:44
 #: .\dashboard\templates\dashboard\index.html:7
 #: .\dashboard\templates\dashboard\index.html:13
 msgid "Dashboard"
-msgstr "Профиль"
+msgstr ""
 
 #: .\core\templates\core\base.html:46
 msgid "Sign in"
-msgstr "Зарегистрироваться"
+msgstr ""
 
 #: .\core\templates\core\base.html:47 .\core\templates\core\login.html:6
 #: .\core\templates\core\login.html:11
 msgid "Log in"
-msgstr "Войти"
+msgstr ""
 
 #: .\core\templates\core\base.html:59 .\core\templates\core\base.html:62
 #: .\core\templates\core\base.html:70
 msgid "About"
-msgstr "О нас"
+msgstr ""
 
 #: .\core\templates\core\base.html:67
 msgid "Menu"
-msgstr "Меню"
+msgstr ""
 
 #: .\core\templates\core\base.html:71 .\core\templates\core\contact.html:7
 msgid "Contact"
-msgstr "Контакты"
+msgstr ""
 
 #: .\core\templates\core\base.html:72
 msgid "Privacy policy"
-msgstr "Политика приватности"
+msgstr ""
 
 #: .\core\templates\core\base.html:73
 msgid "Term of use"
-msgstr "Пользовательское соглашение"
+msgstr ""
 
 #: .\core\templates\core\contact.html:11
 msgid "The contact page"
-msgstr "Контакты"
+msgstr ""
 
 #: .\core\templates\core\index.html:7
 msgid "Welcome"
-msgstr "Главная"
+msgstr ""
 
 #: .\core\templates\core\index.html:13
 msgid ""
@@ -97,9 +96,9 @@ msgid ""
 "и коллекционеров книг. Наша платформа предлагает широкий выбор книг "
 "различных жанров, авторов и изданий по доступным ценам."
 msgstr ""
-"это ваш персональный маркетплейс книг, предназначенный для любителей чтения "
-"и коллекционеров книг. Наша платформа предлагает широкий выбор книг "
-"различных жанров, авторов и изданий по доступным ценам."
+"This is your personal book marketplace designed for reading enthusiasts and "
+"book collectors. Our platform offers a wide selection of books of various "
+"genres, authors and publications at affordable prices."
 
 #: .\core\templates\core\index.html:15
 msgid ""
@@ -108,20 +107,20 @@ msgid ""
 "пространство для обмена литературой, где каждый пользователь может найти то,"
 " что ищет."
 msgstr ""
-"На \"Reread\" вы можете как продавать свои книги, так и приобретать новые "
-"для своей коллекции. Мы стремимся создать удобное и безопасное онлайн-"
-"пространство для обмена литературой, где каждый пользователь может найти то,"
-" что ищет."
+"On \"Reread\" you can both sell your books and purchase new ones for your "
+"collection. We strive to create a convenient and secure online space for the"
+" exchange of literature, where every user can find what they are looking "
+"for."
 
 #: .\core\templates\core\index.html:21
 msgid "Newest items"
-msgstr "Новые объявления"
+msgstr ""
 
 #: .\core\templates\core\index.html:35 .\core\templates\core\index.html:79
 #: .\item\templates\item\detail.html:43 .\item\templates\item\detail.html:45
 #: .\item\templates\item\items.html:98
 msgid "Обмен"
-msgstr "Обмен"
+msgstr ""
 
 #: .\core\templates\core\index.html:49 .\core\templates\core\index.html:52
 #: .\core\templates\core\index.html:86 .\core\templates\core\index.html:88
@@ -131,60 +130,58 @@ msgstr ""
 
 #: .\core\templates\core\index.html:108 .\item\templates\item\items.html:21
 msgid "Categories"
-msgstr "Категории"
+msgstr ""
 
 #: .\core\templates\core\index.html:127
 msgid "items"
-msgstr "Товары"
+msgstr ""
 
 #: .\core\templates\core\login.html:17 .\core\templates\core\signup.html:18
 #: .\dashboard\templates\dashboard\index.html:15
 msgid "Username"
-msgstr "Имя пользователя"
+msgstr ""
 
 #: .\core\templates\core\login.html:22 .\core\templates\core\signup.html:28
 msgid "Password"
-msgstr "Пароль"
+msgstr ""
 
 #: .\core\templates\core\login.html:36 .\core\templates\core\signup.html:47
 #: .\item\templates\item\form.html:30
 msgid "Submit"
-msgstr "Отправить"
+msgstr ""
 
 #: .\core\templates\core\signup.html:7 .\core\templates\core\signup.html:12
 msgid "Sign up"
-msgstr "Вход"
+msgstr ""
 
 #: .\core\templates\core\signup.html:23
 #: .\dashboard\templates\dashboard\index.html:16
 msgid "Email"
-msgstr "Почта"
+msgstr ""
 
 #: .\core\templates\core\signup.html:33
 msgid "Repeat password"
-msgstr "Повторите пароль"
+msgstr ""
 
 #: .\dashboard\templates\dashboard\index.html:17
 msgid "First Name"
-msgstr "Имя"
+msgstr ""
 
 #: .\dashboard\templates\dashboard\index.html:18
 msgid "Last Name"
-msgstr "Фамилия"
+msgstr ""
 
 #: .\dashboard\templates\dashboard\index.html:20
-#, fuzzy
-#| msgid "Log in"
 msgid "Log out"
-msgstr "Войти"
+msgstr ""
 
 #: .\dashboard\templates\dashboard\index.html:41
 msgid "My items"
-msgstr "Мои объявления"
+msgstr ""
 
 #: .\item\forms.py:20 .\item\forms.py:46
 msgid "Select a category"
-msgstr "Выберите категорию"
+msgstr ""
 
 #: .\item\templates\item\detail.html:14
 msgid "Главная"
@@ -196,81 +193,77 @@ msgstr ""
 
 #: .\item\templates\item\detail.html:57
 msgid "Seller"
-msgstr "Продавец"
+msgstr ""
 
 #: .\item\templates\item\detail.html:58
-#, fuzzy
-#| msgid "Categories"
 msgid "Category"
-msgstr "Категории"
+msgstr ""
 
 #: .\item\templates\item\detail.html:59
 msgid "Publisher"
-msgstr "Издательство"
+msgstr ""
 
 #: .\item\templates\item\detail.html:60
 msgid "Language"
-msgstr "Язык"
+msgstr ""
 
 #: .\item\templates\item\detail.html:61
-#, fuzzy
-#| msgid "Conversation"
 msgid "Condition"
-msgstr "Чат"
+msgstr ""
 
 #: .\item\templates\item\detail.html:62
 msgid "Cover type"
-msgstr "Тип переплета"
+msgstr ""
 
 #: .\item\templates\item\detail.html:66
 msgid "Description"
-msgstr "Описание"
+msgstr ""
 
 #: .\item\templates\item\detail.html:73
 msgid "This is your item!"
-msgstr "Это ваше объявление."
+msgstr ""
 
 #: .\item\templates\item\detail.html:75
 msgid "Edit"
-msgstr "Редактировать"
+msgstr ""
 
 #: .\item\templates\item\detail.html:76
 #: .\venv\Lib\site-packages\django\forms\formsets.py:499
 msgid "Delete"
-msgstr "Удалить"
+msgstr ""
 
 #: .\item\templates\item\detail.html:79
 msgid "Contact seller"
-msgstr "Связаться с продавцом"
+msgstr ""
 
 #: .\item\templates\item\detail.html:85
 msgid "Related item"
-msgstr "Связанные объявления"
+msgstr ""
 
 #: .\item\templates\item\items.html:7
 msgid "Items"
-msgstr "Объявления"
+msgstr ""
 
 #: .\item\templates\item\items.html:16
 msgid "Search"
-msgstr "Поиск"
+msgstr ""
 
 #: .\item\templates\item\items.html:35
 msgid "Clear filters"
-msgstr "Очистить фильтры"
+msgstr ""
 
 #: .\item\templates\item\items.html:38
 #: .\venv\Lib\site-packages\django\forms\widgets.py:461
 msgid "Clear"
-msgstr "Очистить"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
-msgstr "Сообщения"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
 msgid "Site Maps"
-msgstr "Карта сайта"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
 msgid "Static Files"
@@ -313,7 +306,7 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:176
 msgid "Enter a valid email address."
-msgstr "Почта введена не правильно"
+msgstr ""
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: .\venv\Lib\site-packages\django\core\validators.py:259
@@ -383,8 +376,6 @@ msgid_plural ""
 "%(show_value)d)."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:457
 #, python-format
@@ -396,8 +387,6 @@ msgid_plural ""
 "%(show_value)d)."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:480
 #: .\venv\Lib\site-packages\django\forms\fields.py:355
@@ -411,8 +400,6 @@ msgid "Ensure that there are no more than %(max)s digit in total."
 msgid_plural "Ensure that there are no more than %(max)s digits in total."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:487
 #, python-format
@@ -420,8 +407,6 @@ msgid "Ensure that there are no more than %(max)s decimal place."
 msgid_plural "Ensure that there are no more than %(max)s decimal places."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:492
 #, python-format
@@ -431,8 +416,6 @@ msgid_plural ""
 "Ensure that there are no more than %(max)s digits before the decimal point."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\core\validators.py:563
 #, python-format
@@ -572,10 +555,8 @@ msgid ""
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1857
-#, fuzzy
-#| msgid "Description"
 msgid "Duration"
-msgstr "Описание"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1909
 msgid "Email address"
@@ -785,8 +766,6 @@ msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:638
 msgid "Please either submit a file or check the clear checkbox, not both."
@@ -846,8 +825,6 @@ msgid "Please submit at most %(num)d form."
 msgid_plural "Please submit at most %(num)d forms."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\forms\formsets.py:70
 #, python-format
@@ -855,8 +832,6 @@ msgid "Please submit at least %(num)d form."
 msgid_plural "Please submit at least %(num)d forms."
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\forms\formsets.py:484
 #: .\venv\Lib\site-packages\django\forms\formsets.py:491
@@ -937,8 +912,6 @@ msgid "%(size)d byte"
 msgid_plural "%(size)d bytes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\template\defaultfilters.py:925
 #, python-format
@@ -1064,10 +1037,8 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:27
 #: .\venv\Lib\site-packages\tornado\locale.py:283
-#, fuzzy
-#| msgid "Search"
 msgid "March"
-msgstr "Поиск"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:28
 #: .\venv\Lib\site-packages\tornado\locale.py:284
@@ -1151,10 +1122,8 @@ msgid "sep"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:48
-#, fuzzy
-#| msgid "Contact"
 msgid "oct"
-msgstr "Контакты"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:49
 msgid "nov"
@@ -1175,11 +1144,9 @@ msgid "Feb."
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:55
-#, fuzzy
-#| msgid "Search"
 msgctxt "abbrev. month"
 msgid "March"
-msgstr "Поиск"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:56
 msgctxt "abbrev. month"
@@ -1237,11 +1204,9 @@ msgid "February"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:69
-#, fuzzy
-#| msgid "Search"
 msgctxt "alt. month"
 msgid "March"
-msgstr "Поиск"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\utils\dates.py:70
 msgctxt "alt. month"
@@ -1314,8 +1279,6 @@ msgid "%(num)d year"
 msgid_plural "%(num)d years"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\utils\timesince.py:9
 #, python-format
@@ -1323,8 +1286,6 @@ msgid "%(num)d month"
 msgid_plural "%(num)d months"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\utils\timesince.py:10
 #, python-format
@@ -1332,8 +1293,6 @@ msgid "%(num)d week"
 msgid_plural "%(num)d weeks"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\utils\timesince.py:11
 #, python-format
@@ -1341,8 +1300,6 @@ msgid "%(num)d day"
 msgid_plural "%(num)d days"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\utils\timesince.py:12
 #, python-format
@@ -1350,8 +1307,6 @@ msgid "%(num)d hour"
 msgid_plural "%(num)d hours"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\utils\timesince.py:13
 #, python-format
@@ -1359,14 +1314,10 @@ msgid "%(num)d minute"
 msgid_plural "%(num)d minutes"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
 
 #: .\venv\Lib\site-packages\django\utils\translation\__init__.py:290
-#, fuzzy
-#| msgid "Username"
 msgid "name"
-msgstr "Имя пользователя"
+msgstr ""
 
 #: .\venv\Lib\site-packages\django\views\csrf.py:29
 msgid "Forbidden"

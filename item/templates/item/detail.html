@@ -11,8 +11,8 @@
 <div class="grid grid-cols-5 gap-6">
     <div class="col-span-3">
         <p class="flex items-center">
-            <a href="#" class="mr-2">{% trans 'Главная' %} — &nbsp;</a>
-            <a href="#" class="mr-2">{{ item.category }} — &nbsp;</a>
+            <a href="#" class="mr-2">{% trans 'Главная' %} — </a>
+            <a href="{% url 'item:items' %}?query=&category={{ item.category.id }}" class="mr-2">{{ item.category }} — </a>
             <span>{{ item.name }}&#187;, {{ item.author }}</span>
         </p>
         <br>
