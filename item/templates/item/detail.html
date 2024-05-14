@@ -10,14 +10,57 @@
 {% block content %}
 <div class="grid grid-cols-5 gap-6">
     <div class="col-span-3">
+        <p class="flex items-center">
+            <a href="#" class="mr-2">{% trans 'Главная' %} — &nbsp;</a>
+            <a href="#" class="mr-2">{{ item.category }} — &nbsp;</a>
+            <span>{{ item.name }}&#187;, {{ item.author }}</span>
+        </p>
+        <br>
+        
         <img src="{{ item.image.url }}" class="rounded-xl">
+        <div class="">
+            <p>Доп.Фото: </p>
+            {% if item.image1 %}
+                <img src="{{ item.image1.url }}" class="rounded-xl">
+            {% endif %}
+            
+            {% if item.image2 %}
+                <img src="{{ item.image2.url }}" class="rounded-xl">
+            {% endif %}
+
+            {% if item.image3 %}
+                <img src="{{ item.image3.url }}" class="rounded-xl">
+            {% endif %}
+        </div>
     </div>
 
     <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
-        <h1 class="mb-6 text-3xl">{{ item.name }}</h1>
-        <p class="text-gray-500"><strong></strong>{{ item.price }}</p>
+        <h1 class="text-xl">&#171;{{ item.name }}&#187;, {{ item.author }}</h1>
+        <p class="text-gray-500 font-bold">
+            {% if item.price %}
+                {% if item.is_swap %}
+                    {% if item.price %}
+                        {{ item.price }} ₸, {% trans 'Обмен' %}
+                    {% else %}
+                        {% trans 'Обмен' %}
+                    {% endif %}
+                {% else %}
+                    {{ item.price }} ₸
+                {% endif %}
+            {% else %}
+                {% if item.price == 0 %}
+                    {{ item.price }} ₸,
+                {% endif %}
+                {% trans 'Бесплатно' %}
+            {% endif %}
+        </p>
         <p class="text-gray-500"><strong>{% trans 'Seller' %}: </strong>{{ item.created_by.username }}</p>
-    
+        <p class="text-gray-500"><strong>{% trans 'Category' %}: </strong>{{ item.category }}</p>
+        <p class="text-gray-500"><strong>{% trans 'Publisher' %}: </strong>{{ item.publisher }}</p>
+        <p class="text-gray-500"><strong>{% trans 'Language' %}: </strong>{{ item.get_language_display }}</p>
+        <p class="text-gray-500"><strong>{% trans 'Condition' %}: </strong>{{ item.get_condition_display }}</p>
+        <p class="text-gray-500"><strong>{% trans 'Cover type' %}: </strong>{{ item.get_cover_type_display  }}</p>
+
         {% if item.description %}
             <p class="text-gray-700">
                 <strong class="text-gray-500">{% trans 'Description' %}:</strong><br>

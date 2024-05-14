@@ -9,169 +9,168 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-29 08:55+0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2024-05-11 19:08+0000\n"
+"Last-Translator: Ilya Fedorov <123@123.123>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
 
 #: .\conversation\templates\conversation\detail.html:7
 #: .\conversation\templates\conversation\detail.html:11
 msgid "Conversation"
-msgstr ""
+msgstr "Чат"
 
 #: .\conversation\templates\conversation\inbox.html:7
 #: .\conversation\templates\conversation\inbox.html:11
 #: .\core\templates\core\base.html:39
 msgid "Inbox"
-msgstr ""
+msgstr "Сообщения"
 
 #: .\conversation\templates\conversation\new.html:7
 #: .\conversation\templates\conversation\new.html:11
 msgid "New conversation"
-msgstr ""
+msgstr "Новый чат"
 
 #: .\core\templates\core\base.html:13
 msgid "secondhand book marketplace"
-msgstr ""
+msgstr "маркетплейс поддержанных книг"
 
 #: .\core\templates\core\base.html:21
 msgid "New item"
-msgstr ""
+msgstr "Создать объявление"
 
 #: .\core\templates\core\base.html:22
 msgid "Browse"
-msgstr ""
+msgstr "Каталог"
 
 #: .\core\templates\core\base.html:40
 #: .\dashboard\templates\dashboard\index.html:7
 msgid "Dashboard"
-msgstr ""
+msgstr "Профиль"
 
 #: .\core\templates\core\base.html:42
 msgid "Sign in"
-msgstr ""
+msgstr "Зарегистрироваться"
 
 #: .\core\templates\core\base.html:43 .\core\templates\core\login.html:6
 #: .\core\templates\core\login.html:11
 msgid "Log in"
-msgstr ""
+msgstr "Войти"
 
 #: .\core\templates\core\base.html:55 .\core\templates\core\base.html:58
 #: .\core\templates\core\base.html:66
 msgid "About"
-msgstr ""
+msgstr "О нас"
 
 #: .\core\templates\core\base.html:63
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 #: .\core\templates\core\base.html:67 .\core\templates\core\contact.html:7
 msgid "Contact"
-msgstr ""
+msgstr "Контакты"
 
 #: .\core\templates\core\base.html:68
 msgid "Privacy policy"
-msgstr ""
+msgstr "Политика приватности"
 
 #: .\core\templates\core\base.html:69
 msgid "Term of use"
-msgstr ""
+msgstr "Пользовательское соглашение"
 
 #: .\core\templates\core\contact.html:11
 msgid "The contact page"
-msgstr ""
+msgstr "Контакты"
 
 #: .\core\templates\core\index.html:7
 msgid "Welcome"
-msgstr ""
+msgstr "Главная"
 
 #: .\core\templates\core\index.html:12
 msgid "Newest items"
-msgstr ""
+msgstr "Новые объявления"
 
 #: .\core\templates\core\index.html:33 .\item\templates\item\items.html:21
 msgid "Categories"
-msgstr ""
+msgstr "Категории"
 
 #: .\core\templates\core\index.html:41
 msgid "items"
-msgstr ""
+msgstr "Товары"
 
 #: .\core\templates\core\login.html:17 .\core\templates\core\signup.html:18
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: .\core\templates\core\login.html:22 .\core\templates\core\signup.html:28
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: .\core\templates\core\login.html:36 .\core\templates\core\signup.html:47
 #: .\item\templates\item\form.html:30
 msgid "Submit"
-msgstr ""
+msgstr "Отправить"
 
 #: .\core\templates\core\signup.html:7 .\core\templates\core\signup.html:12
 msgid "Sign up"
-msgstr ""
+msgstr "Вход"
 
 #: .\core\templates\core\signup.html:23
 msgid "Email"
-msgstr ""
+msgstr "Почта"
 
 #: .\core\templates\core\signup.html:33
 msgid "Repeat password"
-msgstr ""
+msgstr "Повторите пароль"
 
 #: .\dashboard\templates\dashboard\index.html:12
 msgid "My items"
-msgstr ""
+msgstr "Мои объявления"
 
 #: .\item\templates\item\detail.html:19
 msgid "Seller"
-msgstr ""
+msgstr "Продавец"
 
 #: .\item\templates\item\detail.html:23
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: .\item\templates\item\detail.html:30
 msgid "This is your item!"
-msgstr ""
+msgstr "Это ваше объявление."
 
 #: .\item\templates\item\detail.html:32
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 #: .\item\templates\item\detail.html:33
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: .\item\templates\item\detail.html:36
 msgid "Contact seller"
-msgstr ""
+msgstr "Связаться с продавцом"
 
 #: .\item\templates\item\detail.html:42
 msgid "Related item"
-msgstr ""
+msgstr "Связанные объявления"
 
 #: .\item\templates\item\items.html:7
 msgid "Items"
-msgstr ""
+msgstr "Объявления"
 
 #: .\item\templates\item\items.html:16
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 #: .\item\templates\item\items.html:35
 msgid "Clear filters"
-msgstr ""
+msgstr "Очистить фильтры"
 
 #: .\item\templates\item\items.html:38
 msgid "Clear"
-msgstr ""
+msgstr "Очистить"

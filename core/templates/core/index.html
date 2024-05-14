@@ -12,37 +12,42 @@
         <h2 class="mb-12 text-2xl text-center">{% trans 'News' %}</h2>
 
         <div class="grid grid-cols-3 gap-3">
-            {% for item in items %}
-                <div>
-                    <a href="{% url 'item:detail' item.id %}">
-                        <div>
-                            <img src="{{ item.image.url }}" class="rounded-t-xl">
-                        </div>
-
-                        <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-2xl">{{ item.name }}</h2>
-                            <p class="text-gray-500">{{ item.price }}</p>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
+            
         </div>
     </div>
 
     <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
         <h2 class="mb-12 text-2xl text-center">{% trans 'Newest items' %}</h2>
 
-        <div class="grid grid-cols-3 gap-3">
+        <div class="grid xl:md:lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-3">
             {% for item in items %}
-                <div>
+                <div class="">
                     <a href="{% url 'item:detail' item.id %}">
                         <div>
-                            <img src="{{ item.image.url }}" class="rounded-t-xl">
+                            <img src="{{ item.image.url }}" class="rounded-t-xl w-screen max-w-40">
                         </div>
 
                         <div class="p-6 bg-white rounded-b-xl">
-                            <h2 class="text-2xl">{{ item.name }}</h2>
-                            <p class="text-gray-500">{{ item.price }}</p>
+                            <h2 class="text-xl">&#171;{{ item.name }}&#187;, {{ item.author }}</h2>
+                            <br>
+                            <p class="text-gray-500 font-medium">
+                                {% if item.price %}
+                                    {% if item.is_swap %}
+                                        {% if item.price %}
+                                            {{ item.price }} ₸, {% trans 'Обмен' %}
+                                        {% else %}
+                                            {% trans 'Обмен' %}
+                                        {% endif %}
+                                    {% else %}
+                                        {{ item.price }} ₸
+                                    {% endif %}
+                                {% else %}
+                                    {% if item.price == 0 %}
+                                        {{ item.price }} ₸,
+                                    {% endif %}
+                                    {% trans 'Бесплатно' %}
+                                {% endif %}
+                            </p>
                         </div>
                     </a>
                 </div>
