@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-14 17:39+0500\n"
-"PO-Revision-Date: 2024-05-14 17:41+0000\n"
-"Last-Translator: Ilya Fedorov <123@123.123>\n"
+"PO-Revision-Date: 2024-05-15 10:14+0000\n"
+"Last-Translator: Илья Федоров <lyarov22@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Translated-Using: django-rosetta 0.10.0\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
 
 #: .\conversation\templates\conversation\detail.html:7
 #: .\conversation\templates\conversation\detail.html:11
@@ -120,13 +120,13 @@ msgstr ""
 #: .\item\templates\item\detail.html:43 .\item\templates\item\detail.html:45
 #: .\item\templates\item\items.html:98
 msgid "Обмен"
-msgstr ""
+msgstr "Exchange"
 
 #: .\core\templates\core\index.html:49 .\core\templates\core\index.html:52
 #: .\core\templates\core\index.html:86 .\core\templates\core\index.html:88
 #: .\item\templates\item\items.html:105 .\item\templates\item\items.html:107
 msgid "Даром"
-msgstr ""
+msgstr "Free"
 
 #: .\core\templates\core\index.html:108 .\item\templates\item\items.html:21
 msgid "Categories"

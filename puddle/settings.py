@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-j4ippt+3h39u4ontllpc8a(4h&^god(7aicz#@q^sl_(w)2otp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', ]
+ALLOWED_HOSTS = ['*', 'http://192.168.253.51:8000/']
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -36,7 +36,7 @@ LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
-    'modeltranslation',
+    'modeltranslation', # model translation
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,14 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rosetta',
+    'rosetta', # translation
     'livereload', # dev
 
     'conversation',
     'core',
     'dashboard',
     'item',
-    'tailwind',
+
+    'tailwind', # styles
 ]
 
 MIDDLEWARE = [

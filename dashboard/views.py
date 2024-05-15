@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 @login_required
 def index(request):
     items = Item.objects.filter(created_by=request.user)
-    user = User.objects.get(username="admin")
+    user = User.objects.get(username=request.user.username)
 
     return render(request, 'dashboard/index.html', {
         'items': items,

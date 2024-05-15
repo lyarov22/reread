@@ -15,14 +15,22 @@ class LoginForm(AuthenticationForm):
 class SignupForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
     
     username = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'Your username',
+        'placeholder': 'Username',
+        'class': 'w-full py-4 px-6 rounded-xl'
+    }))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'First Name',
+        'class': 'w-full py-4 px-6 rounded-xl'
+    }))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Last Name',
         'class': 'w-full py-4 px-6 rounded-xl'
     }))
     email = forms.CharField(widget=forms.EmailInput(attrs={
-        'placeholder': 'Your email address',
+        'placeholder': 'Email',
         'class': 'w-full py-4 px-6 rounded-xl'
     }))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
