@@ -16,29 +16,42 @@
     </head>
 
     <body>
-        <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200">
+        <nav class="py-6 px-12 flex justify-between items-center border-b border-gray-200">
             <a href="/">
                 <img class="w-36" src="{% static 'img/reread-fulllogo.png' %}" alt="ReRead">
             </a>
 
-            <div class="flex flex-row space-x-5 items-center">
-                <a href="{% url 'item:new' %}" class="text-lg font-semibold hover:text-gray-500">{% trans 'New item' %}</a>
-                <a href="{% url 'item:items' %}" class="text-lg font-semibold hover:text-gray-500">{% trans 'Browse' %}</a>
+            <a href="{% url 'item:items' %}" class="text-lg font-semibold hover:text-gray-500">{% trans 'Browse' %}</a>
 
-                <form id="language-form" action="{% url 'set_language' %}" method="post">
+            <form method="get" action="{% url 'item:items' %}">   
+                <div class="flex flex-row gap-2">
+                    <input value="{{ query }}" type="search" id="default-search" class="block w-full px-4 py-2 text-sm border border-gray-400 rounded-lg appearance-none focus:ring-0" placeholder="{% trans 'Search' %}..." />
+                    <button type="submit" class="font-medium text-sm p-2 px-3 border rounded-lg border-gray-400">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+
+            <div class="flex flex-row space-x-5 items-center ">
+                <a href="{% url 'item:new' %}" class="text-lg font-semibold hover:text-gray-500">{% trans 'New item' %}</a>
+    
+
+                <form id="language-form" action="{% url 'set_language' %}" method="post" class="">
                     {% csrf_token %}
-                    <select name="language" onchange="this.form.submit()">
+                    <select name="language" onchange="this.form.submit()" class="appearance-auto bg-none font-medium rounded-xl text-base px-5 py-2.5 inline-flex focus:ring-0 focus:outline-none focus:ring-transparent">
                         {% get_available_languages as LANGUAGES %}
                         {% get_language_info_list for LANGUAGES as languages %}
                         {% for language in languages %}
-                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                            <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %} class="justify-center">
                                 {{ language.name_local }}
                             </option>
                         {% endfor %}
                     </select>
                 </form>
-                
 
+                
                 {% if request.user.is_authenticated %}
                     <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">{% trans 'Inbox' %}</a>
                     <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">{% trans 'Dashboard' %}</a>
