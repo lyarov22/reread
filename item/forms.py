@@ -1,67 +1,45 @@
 from django import forms
-from django.core.validators import MinValueValidator
-from django.utils.translation import gettext_lazy as _
-from .models import Item, Category
+from .models import Book, Item, ItemImage
 
-INPUT_CLASSES = 'w-full py-4 px-6 rounded-xl border'
+class MultipleFileInput(forms.ClearableFileInput):
+    allow_multiple_selected = True
 
-class CategoryChoiceField(forms.ModelChoiceField):
+class MultipleFileField(forms.FileField):
     def __init__(self, *args, **kwargs):
-        self.language_code = kwargs.pop('language_code', None)
+        kwargs.setdefault("widget", MultipleFileInput())
         super().__init__(*args, **kwargs)
 
-    def label_from_instance(self, obj):
-        return getattr(obj, f'name_{self.language_code}', obj.name)
+    def clean(self, data, initial=None):
+        single_file_clean = super().clean
+        if isinstance(data, (list, tuple)):
+            result = [single_file_clean(d, initial) for d in data]
+        else:
+            result = single_file_clean(data, initial)
+        return result
+
+class BookSearchForm(forms.Form):
+    query = forms.CharField(label='Search for a book', max_length=255, required=False)
 
 class NewItemForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        language_code = kwargs.pop('language_code', None)
-        super().__init__(*args, **kwargs)
-        self.fields['category'] = CategoryChoiceField(queryset=Category.objects.all(), empty_label=_('Select a category'), language_code=language_code)
-        self.fields['price'].required = False
-        self.fields['price'].validators.append(MinValueValidator(0))
+    book = forms.ModelChoiceField(
+        queryset=Book.objects.all(),
+        widget=forms.Select(attrs={'id': 'book-select'}),
+        required=False
+    )
+    images = MultipleFileField(label='Select files', required=False)
 
     class Meta:
         model = Item
-        fields = ('category', 'name', 'author', 'publisher', 'language', 'condition', 'cover_type', 'description', 'price', 'is_swap', 'image', 'image1', 'image2', 'image3',)
-        widgets = {
-            'category': forms.Select(attrs={'class': INPUT_CLASSES, 'placeholder': _('Категория')}),
-            'name': forms.TextInput(attrs={'class': INPUT_CLASSES, 'placeholder': _('Название')}),
-            'author': forms.TextInput(attrs={'class': INPUT_CLASSES, 'placeholder': _('Автор')}),
-            'publisher': forms.TextInput(attrs={'class': INPUT_CLASSES, 'placeholder': _('Издательство')}),
-            'language': forms.Select(attrs={'class': INPUT_CLASSES, 'placeholder': _('Язык')}),
-            'condition': forms.Select(attrs={'class': INPUT_CLASSES, 'placeholder': _('Состояние')}),
-            'cover_type': forms.Select(attrs={'class': INPUT_CLASSES, 'placeholder': _('Тип обложки')}),
-            'description': forms.Textarea(attrs={'class': INPUT_CLASSES, 'placeholder': _('Описание')}),
-            'price': forms.TextInput(attrs={'class': INPUT_CLASSES, 'placeholder': _('Цена')}),
-            'image': forms.FileInput(attrs={'class': INPUT_CLASSES}),
-            'image1': forms.FileInput(attrs={'class': INPUT_CLASSES}),
-            'image2': forms.FileInput(attrs={'class': INPUT_CLASSES}),
-            'image3': forms.FileInput(attrs={'class': INPUT_CLASSES}),
-        }
+        fields = ['book', 'publisher', 'language', 'condition', 'cover_type', 'description', 'price', 'is_swap']
 
-class EditItemForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        language_code = kwargs.pop('language_code', None)
+        self.request = kwargs.pop('request', None)
         super().__init__(*args, **kwargs)
-        self.fields['category'] = CategoryChoiceField(queryset=Category.objects.all(), empty_label=_('Select a category'), language_code=language_code)
-        self.fields['price'].required = False
-        self.fields['price'].validators.append(MinValueValidator(0))
-    class Meta:
-        model = Item
-        fields = ('category', 'name', 'author', 'publisher', 'language', 'condition', 'cover_type', 'description', 'price', 'is_swap', 'image', 'image1', 'image2', 'image3', 'is_sold')
-        widgets = {
-            'category': forms.Select(attrs={'class': INPUT_CLASSES, 'placeholder': _('Категория')}),
-            'name': forms.TextInput(attrs={'class': INPUT_CLASSES, 'placeholder': _('Название')}),
-            'author': forms.TextInput(attrs={'class': INPUT_CLASSES, 'placeholder': _('Автор')}),
-            'publisher': forms.TextInput(attrs={'class': INPUT_CLASSES, 'placeholder': _('Издательство')}),
-            'language': forms.Select(attrs={'class': INPUT_CLASSES, 'placeholder': _('Язык')}),
-            'condition': forms.Select(attrs={'class': INPUT_CLASSES, 'placeholder': _('Состояние')}),
-            'cover_type': forms.Select(attrs={'class': INPUT_CLASSES, 'placeholder': _('Тип обложки')}),
-            'description': forms.Textarea(attrs={'class': INPUT_CLASSES, 'placeholder': _('Описание')}),
-            'price': forms.TextInput(attrs={'class': INPUT_CLASSES, 'placeholder': _('Цена')}),
-            'image': forms.FileInput(attrs={'class': INPUT_CLASSES}),
-            'image1': forms.FileInput(attrs={'class': INPUT_CLASSES}),
-            'image2': forms.FileInput(attrs={'class': INPUT_CLASSES}),
-            'image3': forms.FileInput(attrs={'class': INPUT_CLASSES}),
-        }
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        if self.request:
+            instance.user = self.request.user
+        if commit:
+            instance.save()
+        return instance

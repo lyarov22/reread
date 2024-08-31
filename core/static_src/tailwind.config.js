@@ -44,8 +44,9 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'wheat': '#fcecd3',
+                'wheat': '#ffc315',
                 'wheat-700': '#c9bca8',
+                
             }
         },
     },

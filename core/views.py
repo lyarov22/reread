@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib.auth.forms import AuthenticationForm
 
 from item.models import Category, Item
-
 from .forms import SignupForm
 
 def index(request):
@@ -19,11 +20,10 @@ def contact(request):
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
-
         if form.is_valid():
-            form.save()
-
-            return redirect('/login/')
+            user = form.save()  # Сохраняем пользователя
+            login(request, user)  # Входим в систему
+            return redirect('/')  # Перенаправляем на домашнюю страницу или другую нужную страницу
     else:
         form = SignupForm()
 
