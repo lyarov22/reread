@@ -2,16 +2,18 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
 
-from item.models import Category, Item
+from item.models import Book, Category, Item
 from .forms import SignupForm
 
 def index(request):
     items = Item.objects.filter(is_sold=False)[0:6]
     categories = Category.objects.all()
+    books = Book.objects.filter()[0:6]
 
     return render(request, 'core/index.html', {
         'categories': categories,
         'items': items,
+        'books': books
     })
 
 def contact(request):

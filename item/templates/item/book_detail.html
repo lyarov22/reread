@@ -1,0 +1,89 @@
+{% extends 'core/base.html' %}
+
+{% load static i18n %}
+{% get_current_language as language_code %}
+
+{% block title %}
+    {{ book.name }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto p-6">
+    <!-- Информация о книге -->
+    <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <h1 class="text-3xl font-bold mb-4">{{ book.name }}</h1>
+        <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+        <p><strong>Автор:</strong> {{ book.author }}</p>
+        <p><strong>Год:</strong> {{ book.year }}</p>
+        <p><strong>Язык:</strong> {{ book.language }}</p>
+        <p><strong>Категория:</strong> {{ book.category.name }}</p>
+        <p><strong>Описание:</strong> {{ book.description }}</p>
+    </div>
+
+    <!-- Изображения книги -->
+    <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-4">Изображения книги</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {% for image in images %}
+                <img src="{{ image.image.url }}" alt="Изображение книги" class="w-full h-auto rounded">
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl text-center">{% trans 'Related item' %}</h2>
+    
+        <div class="grid grid-cols-3 gap-3">
+            {% for item in related_items %}
+                <div>
+                    <a href="{% url 'item:detail' item.id %}">
+                        <div>
+                            <img src="{{ item.image.url }}" class="rounded-t-xl">
+                        </div>
+    
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{ item.name }}</h2>
+                            <p class="text-gray-500">{{ item.price }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Связанные предметы -->
+    <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-4">Связанные предметы</h2>
+        <ul>
+            {% for item in items %}
+                <li class="mb-4">
+                    <h3 class="text-xl font-semibold">{{ item.publisher.name }} - {{ item.language }}</h3>
+                    <p><strong>Состояние:</strong> {{ item.get_condition_display }}</p>
+                    <p><strong>Переплет:</strong> {{ item.get_cover_type_display }}</p>
+                    <p><strong>Цена:</strong> {{ item.price }} KZT</p>
+                    {% if item.description %}
+                        <p><strong>Описание:</strong> {{ item.description }}</p>
+                    {% endif %}
+                    <p><strong>Обмен:</strong> {{ item.is_swap|yesno:"Да,Нет" }}</p>
+                    <p><strong>Продано:</strong> {{ item.is_sold|yesno:"Да,Нет" }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Похожие книги -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-4">Похожие книги</h2>
+        <ul>
+            {% for related_book in related_items %}
+                <li>
+                    <a href="{% url 'book_detail' related_book.pk %}" class="text-blue-500 hover:underline">
+                        {{ related_book.name }} - {{ related_book.author }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

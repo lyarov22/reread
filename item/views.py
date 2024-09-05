@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .forms import BookSearchForm, NewItemForm
-from .models import Book, Category, Item, ItemImage
+from .models import Book, BookImage, Category, Item, ItemImage
 
 def items(request):
     query = request.GET.get('query', '')
@@ -115,3 +115,19 @@ def submit_book_suggestion(request):
         messages.success(request, 'Your book suggestion has been sent for review.')
         return redirect('create_item')
     return redirect('create_item')
+
+
+#book
+
+def book_detail(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    items = Item.objects.filter(book=book)
+    related_books = Book.objects.filter(category=book.category).exclude(pk=pk)[:3]
+    images = BookImage.objects.filter(book=book)
+
+    return render(request, 'item/book_detail.html', {
+        'book': book,
+        'items': items,
+        'related_items': related_books,
+        'images': images,
+    })
